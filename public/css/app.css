@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html,body {
 	 margin: 10px;
 
@@ -6,6 +7,10 @@ padding: 0 auto;
 width: 800px;
 font-family: arial;
     /*Empty for now*/
+}
+body {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 
@@ -30,5 +35,12 @@ width: 100px;
 }
 
 .startButtons{
+<<<<<<< HEAD
     width: 200px;
+=======
+    width: 100px;
+}
+
+.oversight{
+width: 100%;
 }
