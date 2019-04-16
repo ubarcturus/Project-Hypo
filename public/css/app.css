@@ -1,6 +1,28 @@
-body {
-	
+html,body {
+	 margin: 10px;
+
+padding: 0 auto;
+
+width: 800px;
+font-family: arial;
     /*Empty for now*/
+}
+
+
+form {
+        width:500px;
+        margin:0px auto;
+        border:1px solid black;
+} 
+
+.form-label{
+	font-size: 16px;
+	font-family: arial;
+}
+
+.btn-primary{
+width: 100px;
+ font-size: 16px;
 }
 
 .welcome {
@@ -8,5 +30,5 @@ body {
 }
 
 .startButtons{
-    width: 100px;
+    width: 200px;
 }
