@@ -7,8 +7,8 @@
 </head>
 <body>
     <?php
-        $nameErr = $emailErr = $phoneErr = $riskErr = "";
-        $name = $email = $phone = $risklvl = "";
+        $nameErr = $emailErr = $phoneErr = $riskErr = $mortgageErr = "";
+        $name = $email = $phone = $risklvl = $mortgagePacket = "";
         $risklevels = ['Risikostufe 1', 'Risikostufe 2', 'Risikostufe 3', 'Risikostufe 4'];
         $mortgages = ['HypoPaket 1', 'HypoPaket 2', 'HypoPaket 3', 'HypoPaket 4'];
 
@@ -51,27 +51,27 @@
                 }
             }
 
-            if($_POST["risk"] == "Select Risikostufe")
+            if(htmlentities($_POST["risk"]) == "Select Risikostufe")
             {
-                
+                $riskErr = "Es muss eine Risikostufe ausgeählt werden";
             }
             else
             {
-
+                $risklvl = htmlentities($_POST["risk"]);
             }
 
-            if($_POST["mortgage"] == "Select HypoPaket")
+            if(htmlentities($_POST["mortgage"]) == "Select HypoPaket")
             {
-                
+                $mortgageErr = "Es muss eine Risikostufe ausgeählt werden";
             }
             else
             {
-
+                $mortgagePacket = htmlentities($_POST["mortgage"]);
             }
 
-            if(!empty($name) && !empty($email) && )
+            if(empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($riskErr) && empty($mortgageErr))
             {
-    
+                $nameErr = "Everything is a OK";
             }
         }
 
@@ -108,25 +108,27 @@
             <div class="form-group">
                 <label for="Risikostufe"> Risikostufe: </label>
                 <select id="cmbRisk" name="risk" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-                <option value="0">Select Risikostufe</option>
+                <option value="Select Risikostufe">Select Risikostufe</option>
                 <?php
                     foreach($risklevels as $risk) { ?>
                     <option value="<?= $risk ?>"><?= $risk ?></option>
                 <?php
                     } ?>
                 </select>
+                <span class="error">* <?php echo $riskErr;?></span>
             </div>
 			<br>
             <div class="form-group">
                 <label for="HypoPaket"> HypoPaket: </label>
                 <select id="cmbHypo" name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-                <option value="0">Select HypoPaket</option>
+                <option value="Select HypoPaket">Select HypoPaket</option>
                 <?php
                     foreach($mortgages as $mortgage) { ?>
                     <option value="<?= $mortgage ?>"><?= $mortgage ?></option>
                 <?php
                     } ?>
                 </select>
+                <span class="error">* <?php echo $mortgageErr;?></span>
             </div>
             <br>
         </div>
