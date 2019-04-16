@@ -85,6 +85,7 @@
                 $rental->mortgage =$_POST['mortgage']?? '';
                 $rental->rentDate = date("Y.m.d");
                 $rental->create();
+                header("Location: /");
             }
         }
 
