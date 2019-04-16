@@ -45,7 +45,7 @@
 
             if(htmlentities($_POST["risk"]) == "Select Risikostufe")
             {
-                $riskErr = "Es muss eine Risikostufe ausgeählt werden"; 
+                $riskErr = "Es muss eine Risikostufe ausgewählt werden"; 
             }
             else
             {
@@ -54,7 +54,7 @@
 
             if(htmlentities($_POST["mortgage"]) == "Select HypoPaket")
             {
-                $mortgageErr = "Es muss eine Risikostufe ausgeählt werden";
+                $mortgageErr = "Es muss ein HypoPaket ausgewählt werden";
             }
             else
             {

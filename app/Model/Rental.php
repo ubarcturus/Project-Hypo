@@ -24,7 +24,6 @@ class Rental{
 		$statement->bindParam(':rentDate', $this->$rentDate);
 		$statement->bindParam(':refundStatus', $this->$refundStatus);
 		$statement->execute();
-
 	}
 
 	public function update(int $id) : bool {
