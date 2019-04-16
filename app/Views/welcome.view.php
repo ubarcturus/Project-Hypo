@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-    <input class="startButtons" type="submit" name="submit" value="Neu"> 
-    <input class="startButtons" type="submit" name="submit" value="Bearbeiten"> 
+    <input type="button" onclick="location.href='/newForm';" value="Neu" />
+    <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
 <script src="public/js/app.js"></script>
 </body>
 </html>
