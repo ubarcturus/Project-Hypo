@@ -30,6 +30,9 @@
             <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
         </tr>
     </table>
+    <br>
+    <br>
+     <input class="btn-primary" onclick="location.href='/';" type="button" value="zurück zur Startseite"> 
 <script src="public/js/app.js"></script>
 </body>
 </html>
