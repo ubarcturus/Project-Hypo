@@ -31,25 +31,27 @@
             <div class="form-group">
                 <label for="Risikostufe"> Risikostufe: </label>
                 <select id="cmbRisk" name="risk" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-                <option value="0">Select Risikostufe</option>
+                <option value="Select Risikostufe">Select Risikostufe</option>
                 <?php
                     foreach($risklevels as $risk) { ?>
                     <option value="<?= $risk ?>"><?= $risk ?></option>
                 <?php
                     } ?>
                 </select>
+                <span class="error">* <?php echo $riskErr;?></span>
             </div>
 			<br>
             <div class="form-group">
                 <label for="HypoPaket"> HypoPaket: </label>
                 <select id="cmbHypo" name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-                <option value="0">Select HypoPaket</option>
+                <option value="Select HypoPaket">Select HypoPaket</option>
                 <?php
                     foreach($mortgages as $mortgage) { ?>
                     <option value="<?= $mortgage ?>"><?= $mortgage ?></option>
                 <?php
                     } ?>
                 </select>
+                <span class="error">* <?php echo $mortgageErr;?></span>
             </div>
             <br>
         </div>
