@@ -1,6 +1,6 @@
 body {
-	
-    /*Empty for now*/
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .welcome {
@@ -9,4 +9,8 @@ body {
 
 .startButtons{
     width: 100px;
+}
+
+.oversight{
+width: 100%;
 }
