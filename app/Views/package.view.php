@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<?php 
+    require 'app/Model/Rental.php';
+    $pdo = connectToDatabase();
+
+    $sql = $pdo->query('SELECT * FROM user');
+    $sqlMortgage = $pdo->query('SELECT * FROM mortgages');
+    $allMortgages = [];
+    while($row = $sqlMortgage->fetch())
+    {
+        array_push($allMortgages, $row['package']);
+    }
+?>
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -15,20 +28,18 @@
             <th>Status</th>
             <th>Bearbeiten</th>
         </tr>
-        <tr>
-            <td>Gerry</td>
-            <td>Packet 1</td> 
-            <td>32.13.2019</td>
-            <td>Happyface<td>
-            <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
-        </tr>
-        <tr>
-            <td>Philipp</td>
-            <td>Packet 2</td> 
-            <td>1.1.0000</td>
-            <td>Sadface<td>
-            <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
-        </tr>
+        <?php
+            while ($row = $sql->fetch())
+            {
+                echo '<tr>';
+                    echo '<td>' . $row['name'] . '</td>';
+                    echo '<td>' . $allMortgages[$row['id']] . '</td>';
+                    echo '<td>' . $row['rentDate'] . '</td>';
+                    echo '<td>' . 'Happyface' . '</td>';
+                    echo '<td><input type="button" onclick="location.href=\'/editForm\';" value="Bearbeiten" /></td>';
+                echo '</tr>';
+            }
+        ?>
     </table>
     <br>
     <br>

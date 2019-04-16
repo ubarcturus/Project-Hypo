@@ -1,21 +1,8 @@
     <?php
-        $pdo = connectToDatabase();
-        $sqlmortgages = $pdo->query('SELECT * FROM mortgages');
-        $sqlrisklvl = $pdo->query('SELECT * FROM risk');
-
         $nameErr = $emailErr = $phoneErr = $riskErr = $mortgageErr = "";
         $name = $email = $phone = $risklvl = $mortgagePacket = "";
-        $risklevels = [];
-        while($row = $sqlrisklvl->fetch()){
-            //$risklevels->push($row['id']);
-            array_push($risklevels, $row['id']);
-        }
-
-        $mortgages = [];
-        while($row = $sqlmortgages->fetch()){
-            //$mortgages->push($row['id']);
-            array_push($mortgages, $row['id']);
-        }
+        $risklevels = ['Risikostufe 1', 'Risikostufe 2', 'Risikostufe 3', 'Risikostufe 4'];
+        $mortgages = ['HypoPaket 1', 'HypoPaket 2', 'HypoPaket 3', 'HypoPaket 4'];
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
@@ -58,7 +45,7 @@
 
             if(htmlentities($_POST["risk"]) == "Select Risikostufe")
             {
-                $riskErr = "Es muss eine Risikostufe ausgewählt werden"; 
+                $riskErr = "Es muss eine Risikostufe ausgeählt werden"; 
             }
             else
             {
@@ -67,7 +54,7 @@
 
             if(htmlentities($_POST["mortgage"]) == "Select HypoPaket")
             {
-                $mortgageErr = "Es muss ein HypoPaket ausgewählt werden";
+                $mortgageErr = "Es muss eine Risikostufe ausgeählt werden";
             }
             else
             {
@@ -76,14 +63,7 @@
 
             if(empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($riskErr) && empty($mortgageErr))
             {
-                $rental = new Rental();
-                $rental->name =$_POST['name']?? '';
-                $rental->email =$_POST['email']?? '';
-                $rental->phone =$_POST['phone']?? '';
-                $rental->risklvl =$_POST['risk']?? '';
-                $rental->mortgage =$_POST['mortgage']?? '';
-                $rental->rentDate = date("Y.m.d");
-                $rental->create();
+    
             }
         }
 
