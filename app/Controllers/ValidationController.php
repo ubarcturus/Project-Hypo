@@ -1,6 +1,8 @@
-<?php
-        $nameErr = $emailErr = $phoneErr = "";
-        $name = $email = $phone = "";
+    <?php
+        $nameErr = $emailErr = $phoneErr = $riskErr = "";
+        $name = $email = $phone = $risklvl = "";
+        $risklevels = ['Risikostufe 1', 'Risikostufe 2', 'Risikostufe 3', 'Risikostufe 4'];
+        $mortgages = ['HypoPaket 1', 'HypoPaket 2', 'HypoPaket 3', 'HypoPaket 4'];
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
@@ -41,9 +43,27 @@
                 }
             }
 
-            if(!empty($phone) && !empty($name) && !empty($email))
+            if($_POST["risk"] == "Select Risikostufe")
+            {
+                
+            }
+            else
             {
 
+            }
+
+            if($_POST["mortgage"] == "Select HypoPaket")
+            {
+                
+            }
+            else
+            {
+
+            }
+
+            if(!empty($name) && !empty($email))
+            {
+    
             }
         }
 
