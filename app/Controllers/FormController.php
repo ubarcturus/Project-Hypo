@@ -1,3 +1,2 @@
 <?php
-		require 'app/Views/form.view.php';
-       
+require 'app/Views/form.view.php';
