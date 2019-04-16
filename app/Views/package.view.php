@@ -13,18 +13,21 @@
             <th>Packet</th> 
             <th>Datum</th>
             <th>Status</th>
+            <th>Bearbeiten</th>
         </tr>
         <tr>
             <td>Gerry</td>
             <td>Packet 1</td> 
             <td>32.13.2019</td>
             <td>Happyface<td>
+            <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
         </tr>
         <tr>
             <td>Philipp</td>
             <td>Packet 2</td> 
             <td>1.1.0000</td>
             <td>Sadface<td>
+            <input type="button" onclick="location.href='/editForm';" value="Bearbeiten" />
         </tr>
     </table>
 <script src="public/js/app.js"></script>
