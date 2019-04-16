@@ -1,6 +1,6 @@
     <?php
-        $nameErr = $emailErr = $phoneErr = $riskErr = "";
-        $name = $email = $phone = $risklvl = "";
+        $nameErr = $emailErr = $phoneErr = $riskErr = $mortgageErr = "";
+        $name = $email = $phone = $risklvl = $mortgagePacket = "";
         $risklevels = ['Risikostufe 1', 'Risikostufe 2', 'Risikostufe 3', 'Risikostufe 4'];
         $mortgages = ['HypoPaket 1', 'HypoPaket 2', 'HypoPaket 3', 'HypoPaket 4'];
 
@@ -43,25 +43,25 @@
                 }
             }
 
-            if($_POST["risk"] == "Select Risikostufe")
+            if(htmlentities($_POST["risk"]) == "Select Risikostufe")
             {
-                
+                $riskErr = "Es muss eine Risikostufe ausgeählt werden"; 
             }
             else
             {
-
+                $risklvl = htmlentities($_POST["risk"]);
             }
 
-            if($_POST["mortgage"] == "Select HypoPaket")
+            if(htmlentities($_POST["mortgage"]) == "Select HypoPaket")
             {
-                
+                $mortgageErr = "Es muss eine Risikostufe ausgeählt werden";
             }
             else
             {
-
+                $mortgagePacket = htmlentities($_POST["mortgage"]);
             }
 
-            if(!empty($name) && !empty($email))
+            if(empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($riskErr) && empty($mortgageErr))
             {
     
             }
