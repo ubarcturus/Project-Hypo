@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-    <input class="startButtons" type="submit" name="submit" value="Neu"> 
-    <input class="startButtons" type="submit" name="submit" value="Bearbeiten"> 
+    <h1 class="form-title">Hypothek-Verleih</h1>
+	<input class="startButtons" type="submit" name="submit" value="Neuer Verleih erfassen"> 
+    <input class="startButtons" type="submit" name="submit" value="Verleih bearbeiten"> 
 <script src="public/js/app.js"></script>
 </body>
 </html>
