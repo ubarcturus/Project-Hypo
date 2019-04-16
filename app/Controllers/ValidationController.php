@@ -5,6 +5,7 @@
 
         $nameErr = $emailErr = $phoneErr = $riskErr = $mortgageErr = "";
         $name = $email = $phone = $risklvl = $mortgagePacket = "";
+        
         $risklevels = [];
         while($row = $sqlrisklvl->fetch()){
             //$risklevels->push($row['id']);
