@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Meine Seite</title>
     <link rel="stylesheet" href="public/css/app.css">
-    
 </head>
 <body>
     <?php require 'app/Controllers/ValidationController.php';  ?>
@@ -58,7 +57,7 @@
         </div>
 
 
-    <input type="submit"  name="submit" value="Erfassen">  
+    <input type="submit" name="submit" value="Erfassen">  
     <input type="button" onclick="location.href='/';"name="cancel" value="Abbrechen">  
     </form>
     <script src="public/js/app.js"></script>

@@ -17,7 +17,6 @@
     <meta charset="UTF-8">
     <title>Meine Seite</title>
     <link rel="stylesheet" href="public/css/app.css">
-    
 </head>
 <body>
     <h2>Alle Verleihe</h2>
@@ -36,8 +35,8 @@
                     echo '<td>' . $row['name'] . '</td>';
                     echo '<td>' . $allMortgages[$row['id']] . '</td>';
                     echo '<td>' . $row['rentDate'] . '</td>';
-                    echo '<td>' . '' . '</td>';
-                    echo '<td><input type="button" onclick="location.href=\'/editForm\';" value="Bearbeiten" /></td>';
+                    echo '<td>' . 'Happyface' . '</td>';
+                    echo '<td><input type="button" onclick="location.href=\'/editForm&id=' . $row['id'] .'\';" value="Bearbeiten" /></td>';
                 echo '</tr>';
             }
         ?>
