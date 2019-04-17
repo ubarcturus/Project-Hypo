@@ -83,6 +83,31 @@
                 $rental->risklvl =$_POST['risk']?? '';
                 $rental->mortgage =$_POST['mortgage']?? '';
                 $rental->rentDate = date("Y.m.d");
+                switch ($rental->risklvl) {
+                    case '1':
+                        $rental->payDate= date("Y.m.d", strtotime( " + 360 days"));
+                        var_dump( $rental->rentDate);
+                        break;
+                    case '2':
+                        $rental->payDate= date("Y-m-d", strtotime( " + 180 days"));
+                        var_dump( $rental->payDate);
+                        break;
+                    case '3':
+                        $rental->payDate= date("Y.m.d", strtotime( " + 0 days"));
+                        var_dump( $rental->payDate);
+                        break;
+                    case '4':
+                        $rental->payDate= date("Y.m.d", strtotime( " - 120 days"));
+                        var_dump( $rental->payDate);
+                        break;
+                    case '5':
+                        $rental->payDate= date("Y.m.d", strtotime( " - 240 days"));
+                        var_dump( $rental->payDate);
+                        break;
+                    
+                    default:
+                        break;
+                }
                 $rental->create();
             }
         }

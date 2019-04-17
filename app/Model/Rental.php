@@ -31,12 +31,12 @@ class Rental{
 		$statement = $this->db->prepare('UPDATE `user` SET `name`=[value-:name],`email`=[value-:email],`phoneNumber`=[value-:phone],`fk_mortgages`=_mortgage,`rentDate`=[value-:rentDate],`refundStatus`=[value-:refundStatus]  WHERE id = :id');
 
 		$statement->bindParam(':id', $id);
-		$statement->bindParam(':name', $this->$name);
-		$statement->bindParam(':email', $this->$email);
-		$statement->bindParam(':phone', $this->$phone);
-		$statement->bindParam(':mortgage', $this->$mortgage);
-		$statement->bindParam(':rentDate', $this->$rentDate);
-		$statement->bindParam(':refundStatus', $this->$refundStatus);
+		$statement->bindParam(':name', $this->name);
+		$statement->bindParam(':email', $this->email);
+		$statement->bindParam(':phone', $this->phone);
+		$statement->bindParam(':mortgage', $this->mortgage);
+		$statement->bindParam(':rentDate', $this->rentDate);
+		$statement->bindParam(':refundStatus', $this->refundStatus);
 
 		return $statement->execute();
 	}
