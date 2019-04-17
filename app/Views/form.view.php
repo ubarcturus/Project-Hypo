@@ -29,7 +29,7 @@
             <br>
             <div class="form-group">
                 <label for="Risikostufe"> Risikostufe: </label>
-                <select id="cmbRisk" name="risk" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+                <select id="cmbRisk" name="risk" onchange="changePayDate()">
                 <option value="Select Risikostufe">Select Risikostufe</option>
                 <?php
                     foreach($risklevels as $risk) { ?>
@@ -39,10 +39,14 @@
                 </select>
                 <span class="error">* <?php echo $riskErr;?></span>
             </div>
+            <br>
+            <div class="form-group">
+                Zahldatum: <input type="text" name="payDate" id="payDate" disabled="disabled">
+            </div>
 			<br>
             <div class="form-group">
                 <label for="HypoPaket"> HypoPaket: </label>
-                <select id="cmbHypo" name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+                <select id="cmbHypo" name="mortgage" onchange="onchange">
                 <option value="Select HypoPaket">Select HypoPaket</option>
                 <?php
                 for ($i=0; $i < count($mortgagesText) ; $i++) { ?>
@@ -60,5 +64,6 @@
     <input type="button" onclick="location.href='/';"name="cancel" value="Abbrechen">  
     </form>
     <script src="public/js/app.js"></script>
+    <script src="public/js/payDate.js"></script>
 </body>
 </html>

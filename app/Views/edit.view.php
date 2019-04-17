@@ -37,13 +37,13 @@
                         if($risk == $risklvl)
                         {
                 ?>
-                    <option value="<?= $risk ?>" disabled = "disabled" selected="selected"><?= $risk ?></option>
+                    <option value="<?= $risk ?>" disabled="disabled" selected="selected"><?= $risk ?></option>
                 <?php
                     }
                     else
                     {
                 ?>
-                <option value="<?= $risk ?>" disabled = "disabled" ><?= $risk ?></option>
+                <option value="<?= $risk ?>" disabled="disabled"><?= $risk ?></option>
                 <?php
                     }
                 } 
