@@ -32,20 +32,23 @@
         <?php
             while ($row = $sql->fetch())
             {
-                echo '<tr>';
-                    echo '<td>' . $row['name'] . '</td>';
-                    echo '<td>' . $allMortgages[$row['fk_mortgages']-1] . '</td>';
-                    echo '<td>' . $row['rentDate'] . '</td>';
-                    if ($rental->checkPayDate($row['payDate'])) {
-                        $icon = '💸';
-                    }
-                    else
-                    {
-                        $icon = '🚨';
-                    }
-                    echo '<td>' . $icon . '</td>';
-                    echo '<td><input class = "btn-editPackage" type="button" onclick="location.href=\'/editForm&id=' . $row['id'] .'\';" value="Bearbeiten" /></td>';
-                echo '</tr>';
+                if($row['refundStatus'] == '0')
+                {
+                    echo '<tr>';
+                        echo '<td>' . $row['name'] . '</td>';
+                        echo '<td>' . $allMortgages[$row['fk_mortgages']-1] . '</td>';
+                        echo '<td>' . $row['rentDate'] . '</td>';
+                        if ($rental->checkPayDate($row['payDate'])) {
+                            $icon = '💸';
+                        }
+                        else
+                        {
+                            $icon = '🚨';
+                        }
+                        echo '<td>' . $icon . '</td>';
+                        echo '<td><input class = "btn-editPackage" type="button" onclick="location.href=\'/editForm&id=' . $row['id'] .'\';" value="Bearbeiten" /></td>';
+                    echo '</tr>';
+                }
             }
         ?>
     </table>
