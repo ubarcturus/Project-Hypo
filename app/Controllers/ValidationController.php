@@ -1,7 +1,9 @@
     <?php
+        require 'app/Controllers/ValidatingController.php';
         $pdo = connectToDatabase();
         $sqlmortgages = $pdo->query('SELECT * FROM mortgages');
         $sqlrisklvl = $pdo->query('SELECT * FROM risk');
+        
 
         $nameErr = $emailErr = $phoneErr = $riskErr = $mortgageErr = "";
         $name = $email = $phone = $risklvl = $mortgagePacket = "";
@@ -19,59 +21,49 @@
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            if(empty($_POST["name"]))
-            {
-                $nameErr = "Name wird benötigt";
-            }
-            else
+            if(isNameValid())
             {
                 $name = test_input($_POST["name"]);
             }
-
-            if(empty($_POST["email"]))
+            else
             {
-                $emailErr = "Email wird benötigt";
+                $nameErr = "Name wird benötigt";
+            }
+
+            if(isEmailValid())
+            {
+                $email = test_input($_POST["email"]);
             }
             else
             {
-                if(strpos($_POST["email"], '@'))
-                {
-                    $email = test_input($_POST["email"]);
-                }
-                else
-                {
-                    $emailErr = "Email braucht ein @ Zeichen";
-                }
+                $emailErr = "Email braucht ein @ Zeichen";   
             }
 
-            if(!empty($_POST["phone"]))
+            if(isPhoneValid())
             {
-                if(preg_match('/^[0-9\/ +-]*$/', $_POST["phone"]))
-                {
-                    $phone = test_input($_POST["phone"]);
-                }
-                else
-                {
-                    $phoneErr = "Die Telefonnummer ist nicht im richtigem Format";
-                }
-            }
-
-            if(htmlentities($_POST["risk"]) == "Select Risikostufe")
-            {
-                $riskErr = "Es muss eine Risikostufe ausgewählt werden"; 
+                $phone = test_input($_POST["phone"]);
             }
             else
+            {
+                $phoneErr = "Die Telefonnummer ist nicht im richtigem Format";
+            }
+
+            if(isRiskValid())
             {
                 $risklvl = htmlentities($_POST["risk"]);
             }
-
-            if(htmlentities($_POST["mortgage"]) == "Select HypoPaket")
+            else
             {
-                $mortgageErr = "Es muss ein HypoPaket ausgewählt werden";
+                $riskErr = "Es muss eine Risikostufe ausgewählt werden"; 
+            }
+
+            if(isMortgageValid())
+            {
+                $mortgagePacket = htmlentities($_POST["mortgage"]);
             }
             else
             {
-                $mortgagePacket = htmlentities($_POST["mortgage"]);
+                $mortgageErr = "Es muss ein HypoPaket ausgewählt werden";
             }
 
             if(empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($riskErr) && empty($mortgageErr))
@@ -104,15 +96,6 @@
                 }
                 $rental->create();
                 header("Location: /");
-
             }
-        }
-
-        function test_input($data) 
-        {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
         }
     ?>
