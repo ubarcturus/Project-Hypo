@@ -34,11 +34,22 @@
             <div class="form-group">
                 <label class="form-label" name="risk" for="risk-level">Risikostufe</label>
 				<select>
+                    <?php
+                    foreach($risklevels as $risk) { 
+                        if($risk == $risklvl)
+                        {
+                ?>
+                    <option value="<?= $risk ?>" selected="selected"><?= $risk ?></option>
                 <?php
-                    foreach($risklevels as $risk) { ?>
-                    <option value="<?= $risk ?>" selected=<?= $risklvl ?> disabled = "disabled"><?= $risk ?></option>
+                    }
+                    else
+                    {
+                ?>
+                <option value="<?= $risk ?>" ><?= $risk ?></option>
                 <?php
-                    } ?>
+                    }
+                } 
+                ?>
 				</select>
             </div>
 			<br>
@@ -47,10 +58,20 @@
 				<select name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
                 <?php
                     foreach($mortgages as $mortgage) { 
-                    ?>
-                    <option value="<?= $mortgage ?>" selected=<?= $selectedMortgage ?>><?= $mortgage ?></option>
+                        if($mortgage == $selectedMortgage)
+                        {
+                ?>
+                    <option value="<?= $mortgage ?>" selected="selected"><?= $mortgage ?></option>
                 <?php
-                    } ?>
+                    }
+                    else
+                    {
+                ?>
+                <option value="<?= $mortgage ?>" ><?= $mortgage ?></option>
+                <?php
+                    }
+                } 
+                ?>
 				</select>
             </div>
             <br>
@@ -62,8 +83,8 @@
         </div>
 		<br>
 		<div class="form-actions">
-        <input class="btn-primary" type="submit" value="Ändern"> 
-	   <input class="btn-primary" onclick="location.href='/allPackages';"type="button" value="Abbrechen">
+        <input class="btn-edit" type="submit" value="Ändern"> 
+	   <input class="btn-edit" onclick="location.href='/allPackages';"type="button" value="Abbrechen">
        </form>
 	</div>
 <script src="public/js/app.js"></script>

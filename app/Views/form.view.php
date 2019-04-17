@@ -46,8 +46,9 @@
                 <select id="cmbHypo" name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
                 <option value="Select HypoPaket">Select HypoPaket</option>
                 <?php
-                    foreach($mortgages as $mortgage) { ?>
-                    <option value="<?= $mortgage ?>"><?= $mortgage ?></option>
+                for ($i=0; $i < count($mortgagesText) ; $i++) { ?>
+                    <option value="<?= $mortgages[$i] ?>"><?= $mortgagesText[$i] ?></option> 
+                
                 <?php
                     } ?>
                 </select>
