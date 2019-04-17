@@ -25,8 +25,8 @@
     <table class="oversight">
         <tr>
             <th>Name</th>
-            <th>Packet</th> 
-            <th>Datum</th>
+            <th>Paket</th> 
+            <th>Vergabedatum</th>
             <th>Status</th>
         </tr>
         <?php
