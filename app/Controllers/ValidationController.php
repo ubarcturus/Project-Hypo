@@ -14,9 +14,11 @@
         }
 
         $mortgages = [];
+        $mortgagesText = [];
         while($row = $sqlmortgages->fetch()){
             //$mortgages->push($row['id']);
             array_push($mortgages, $row['id']);
+            array_push($mortgagesText, $row['package']);
         }
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
