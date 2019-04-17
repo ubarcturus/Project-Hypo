@@ -35,7 +35,7 @@
                     echo '<td>' . $row['name'] . '</td>';
                     echo '<td>' . $allMortgages[$row['id']] . '</td>';
                     echo '<td>' . $row['rentDate'] . '</td>';
-                    echo '<td>' . 'Happyface' . '</td>';
+                    echo '<td>' . '' . '</td>';
                     echo '<td><input type="button" onclick="location.href=\'/editForm\';" value="Bearbeiten" /></td>';
                 echo '</tr>';
             }
