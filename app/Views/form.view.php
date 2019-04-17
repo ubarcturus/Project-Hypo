@@ -7,24 +7,24 @@
 </head>
 <body>
     <?php require 'app/Controllers/ValidationController.php';  ?>
-    <form method="post" action="">  
+    <form method="post" id="formular" action="">  
     <div class="editRental">
 		<h1 class="form-title">Neuer Antrag</h1>
 		* benötigte Felder
 		<br>
 		<br>
             <div class="form-group">
-                Name: <input type="text" name="name" value="<?php echo $name;?>">
+                Name: <input type="text" name="name" id="name" value="<?php echo $name;?>">
                 <span class="error">* <?php echo $nameErr;?></span>
             </div>
             <br>
             <div class="form-group">
-                Email: <input type="text" name="email" value="<?php echo $email;?>">
+                Email: <input type="text" name="email" id="email" value="<?php echo $email;?>">
                 <span class="error">* <?php echo $emailErr;?></span>
             </div>
             <br>
             <div class="form-group">
-                Telefon: <input type="text" name="phone" value="<?php echo $phone;?>">
+                Telefon: <input type="text" name="phone" id="phone" value="<?php echo $phone;?>">
                 <span class="error"> <?php echo $phoneErr;?></span>
             </div>
             <br>
@@ -46,9 +46,8 @@
                 <select id="cmbHypo" name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
                 <option value="Select HypoPaket">Select HypoPaket</option>
                 <?php
-                for ($i=0; $i < count($mortgagesText) ; $i++) { ?>
-                    <option value="<?= $mortgages[$i] ?>"><?= $mortgagesText[$i] ?></option> 
-                
+                    foreach($mortgages as $mortgage) { ?>
+                    <option value="<?= $mortgage ?>"><?= $mortgage ?></option>
                 <?php
                     } ?>
                 </select>
@@ -61,6 +60,6 @@
     <input type="submit" name="submit" value="Erfassen">  
     <input type="button" onclick="location.href='/';"name="cancel" value="Abbrechen">  
     </form>
-    <script src="public/js/app.js"></script>
+    <script src="public/js/JSValidation.js"></script>
 </body>
 </html>
