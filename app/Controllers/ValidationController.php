@@ -14,9 +14,11 @@
         }
 
         $mortgages = [];
+        $mortgagesText = [];
         while($row = $sqlmortgages->fetch()){
             //$mortgages->push($row['id']);
             array_push($mortgages, $row['id']);
+            array_push($mortgagesText, $row['package']);
         }
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -74,6 +76,7 @@
                 $rental->phone =$_POST['phone']?? '';
                 $rental->risklvl =$_POST['risk']?? '';
                 $rental->mortgage =$_POST['mortgage']?? '';
+                var_dump($rental->mortgage);
                 $rental->rentDate = date("Y.m.d");
                 switch ($rental->risklvl) {
                     case '1':
@@ -95,7 +98,7 @@
                         break;
                 }
                 $rental->create();
-                header("Location: /");
+             //   header("Location: /");
             }
         }
     ?>

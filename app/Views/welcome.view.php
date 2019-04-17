@@ -7,8 +7,8 @@
 </head>
 <body>
 	<h1>Hypothekverleihe</h1>
-    <input type="button" onclick="location.href='/newForm';" value="Neu" />
-    <input type="button" onclick="location.href='/allPackages';" value="Verleihe anzeigen" />
+    <input class="btn-primary" type="button" onclick="location.href='/newForm';" value="Neu" />
+    <input class="btn-primary"type="button" onclick="location.href='/allPackages';" value="Verleihe anzeigen" />
 <script src="public/js/app.js"></script>
 </body>
 </html>

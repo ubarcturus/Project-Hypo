@@ -62,8 +62,8 @@
         </div>
 		<br>
 		<div class="form-actions">
-        <input class="btn-primary" type="submit" value="Ändern"> 
-	   <input class="btn-primary" onclick="location.href='/allPackages';"type="button" value="Abbrechen">
+        <input class="btn-edit" type="submit" value="Ändern"> 
+	   <input class="btn-edit" onclick="location.href='/allPackages';"type="button" value="Abbrechen">
        </form>
 	</div>
 <script src="public/js/app.js"></script>

@@ -18,18 +18,23 @@ body {
 }
 
 .btn-primary{
-
-    width: 200px;
+    margin: 10px;
+    width: 50%;
     font-size: 16px;
+    padding: 20px;
 }
 
 .welcome {
     padding-top: 40vh;
 }
 
+.btn-editPackage{
+    margin-left: 20px;
+}
+
+
 .startButtons{
     width: 200px;
-    width: 100px;
 }
 
 .oversight{
