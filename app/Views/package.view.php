@@ -6,10 +6,13 @@
     $sql = $pdo->query('SELECT * FROM user');
     $sqlMortgage = $pdo->query('SELECT * FROM mortgages');
     $allMortgages = [];
+    $icon = '';
     while($row = $sqlMortgage->fetch())
     {
         array_push($allMortgages, $row['package']);
     }
+    $rental = new Rental();
+  
 ?>
 
 <html lang="de">
@@ -33,9 +36,16 @@
             {
                 echo '<tr>';
                     echo '<td>' . $row['name'] . '</td>';
-                    echo '<td>' . $allMortgages[$row['id']] . '</td>';
+                    echo '<td>' . $allMortgages[$row['fk_mortgages']] . '</td>';
                     echo '<td>' . $row['rentDate'] . '</td>';
-                    echo '<td>' . '' . '</td>';
+                    if ($rental->checkPayDate($row['payDate'])) {
+                        $icon = '💸';
+                    }
+                    else
+                    {
+                        $icon = '🚨';
+                    }
+                    echo '<td>' . $icon . '</td>';
                     echo '<td><input type="button" onclick="location.href=\'/editForm&id=' . $row['id'] .'\';" value="Bearbeiten" /></td>';
                 echo '</tr>';
             }
