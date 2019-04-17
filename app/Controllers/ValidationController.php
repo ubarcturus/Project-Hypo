@@ -86,26 +86,20 @@
                 $rental->rentDate = date("Y.m.d");
                 switch ($rental->risklvl) {
                     case '1':
-                        $rental->payDate= date("Y.m.d", strtotime( " + 360 days"));
-                        var_dump( $rental->rentDate);
+                        $rental->payDate= date("Y.m.d", strtotime(" + 360 days"));
                         break;
                     case '2':
-                        $rental->payDate= date("Y-m-d", strtotime( " + 180 days"));
-                        var_dump( $rental->payDate);
+                        $rental->payDate= date("Y-m-d", strtotime(" + 180 days"));
                         break;
                     case '3':
-                        $rental->payDate= date("Y.m.d", strtotime( " + 0 days"));
-                        var_dump( $rental->payDate);
+                        $rental->payDate= date("Y.m.d", strtotime(" + 0 days"));
                         break;
                     case '4':
-                        $rental->payDate= date("Y.m.d", strtotime( " - 120 days"));
-                        var_dump( $rental->payDate);
+                        $rental->payDate= date("Y.m.d", strtotime(" - 120 days"));
                         break;
                     case '5':
-                        $rental->payDate= date("Y.m.d", strtotime( " - 240 days"));
-                        var_dump( $rental->payDate);
+                        $rental->payDate= date("Y.m.d", strtotime(" - 240 days"));
                         break;
-                    
                     default:
                         break;
                 }
