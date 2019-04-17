@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else
     {
-        $refundErr = "Der Status ist nicht möglich, nur 0 für offen oder 1 für zurückgezahlt";
+        $refundErr = "Der Status is nicht valid, valid ist 0 oder 1";
     }
 
     if(empty($nameErr) && empty($phoneErr) && empty($refundErr))

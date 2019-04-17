@@ -26,9 +26,7 @@ while($row = $sql->fetch())
         $email = $row['email'];
         $phone = $row['phoneNumber'];
         $risklvl = $row['fk_risk'];
-        var_dump($risklvl);
         $selectedMortgage = $row['fk_mortgages'];
-        var_dump($selectedMortgage);
         $reStatus = $row['refundStatus'];
     }
 }
