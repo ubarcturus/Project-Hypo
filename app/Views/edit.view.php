@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Verleih bearbeiten</title>
 	<link rel="stylesheet" href="public/css/app.css">
+    
 </head>
 <body>
 	<div class="editRental">
