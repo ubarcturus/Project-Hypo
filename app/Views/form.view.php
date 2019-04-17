@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-    <?php require 'app/Controllers/ValidationController.php';  ?>
     <form method="post" action="">  
     <div class="editRental">
 		<h1 class="form-title">Neuer Antrag</h1>
@@ -48,7 +47,6 @@
                 <?php
                 for ($i=0; $i < count($mortgagesText) ; $i++) { ?>
                     <option value="<?= $mortgages[$i] ?>"><?= $mortgagesText[$i] ?></option> 
-                
                 <?php
                     } ?>
                 </select>

@@ -6,14 +6,12 @@
 	<link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-<?php require 'app/Controllers/GetIdController.php';  ?>
-<?php require 'app/Controllers/UpdateController.php';  ?>
 	<div class="editRental">
 		<h1 class="form-title">Verleih bearbeiten</h1>
 		* benötigte Felder
 		<br>
 		<br>
-        <form method="post" action=""> 
+        <form method="post" action="/update?id=<?= $idURL ?>"> 
             <div class="form-group">
                 <label class="form-label" for="name">Name</label>
                 <input class="form-control" value="<?= $name ?? '' ?>" type="text" id="name" name="name">
@@ -39,13 +37,13 @@
                         if($risk == $risklvl)
                         {
                 ?>
-                    <option value="<?= $risk ?>" selected="selected"><?= $risk ?></option>
+                    <option value="<?= $risk ?>" disabled = "disabled" selected="selected"><?= $risk ?></option>
                 <?php
                     }
                     else
                     {
                 ?>
-                <option value="<?= $risk ?>" ><?= $risk ?></option>
+                <option value="<?= $risk ?>" disabled = "disabled" ><?= $risk ?></option>
                 <?php
                     }
                 } 
@@ -57,17 +55,17 @@
                 <label class="form-label" name="mortgageLabel" for="hypo-package">Hypo-Paket</label>
 				<select name="mortgage" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
                 <?php
-                    foreach($mortgages as $mortgage) { 
-                        if($mortgage == $selectedMortgage)
+                    for($i=0;$i < count($mortgagesText); $i++) { 
+                        if($mortgages[$i] == $selectedMortgage)
                         {
                 ?>
-                    <option value="<?= $mortgage ?>" selected="selected"><?= $mortgage ?></option>
+                    <option value="<?= $mortgages[$i] ?>" selected="selected"><?= $mortgagesText[$i] ?></option>
                 <?php
                     }
                     else
                     {
                 ?>
-                <option value="<?= $mortgage ?>" ><?= $mortgage ?></option>
+                <option value="<?= $mortgages[$i] ?>" ><?= $mortgagesText[$i] ?></option>
                 <?php
                     }
                 } 
@@ -78,7 +76,6 @@
             <div class="form-group">
                 <label class="form-label" for="paymanetStatus">Rückzahlungsstatus</label>
                 <input class="form-control" type="text" id="paymentStatus"name="paymentStatus" value="<?= $reStatus ?? '' ?>">
-                <span class="error"><?php echo $refundErr;?></span>
             </div>
         </div>
 		<br>

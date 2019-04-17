@@ -19,16 +19,13 @@ while($row = $sqlmortgages->fetch()){
 $sql = $pdo->query('SELECT * FROM user');
 while($row = $sql->fetch())
 {
-    
     if($row['id'] == $idURL)
     {
         $name = $row['name'];
         $email = $row['email'];
         $phone = $row['phoneNumber'];
         $risklvl = $row['fk_risk'];
-        var_dump($risklvl);
         $selectedMortgage = $row['fk_mortgages'];
-        var_dump($selectedMortgage);
         $reStatus = $row['refundStatus'];
     }
 }
