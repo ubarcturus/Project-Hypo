@@ -42,5 +42,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $rental->refundStatus = $_POST['paymentStatus']?? '';
         
         $rental->update($_GET['id']);
+        header("Location: /allPackages");
     }
 }

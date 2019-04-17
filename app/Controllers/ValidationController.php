@@ -101,6 +101,7 @@
                         break;
                 }
                 $rental->create();
+                header("Location: /");
             }
         }
     ?>
