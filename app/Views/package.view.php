@@ -12,7 +12,6 @@
         array_push($allMortgages, $row['package']);
     }
     $rental = new Rental();
-  
 ?>
 
 <html lang="de">
@@ -36,7 +35,7 @@
             {
                 echo '<tr>';
                     echo '<td>' . $row['name'] . '</td>';
-                    echo '<td>' . $allMortgages[$row['fk_mortgages']] . '</td>';
+                    echo '<td>' . $allMortgages[$row['fk_mortgages']-1] . '</td>';
                     echo '<td>' . $row['rentDate'] . '</td>';
                     if ($rental->checkPayDate($row['payDate'])) {
                         $icon = '💸';
